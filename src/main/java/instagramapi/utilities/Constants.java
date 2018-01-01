@@ -1,4 +1,4 @@
-package instagramapi;
+package instagramapi.utilities;
 
 public class Constants {
 

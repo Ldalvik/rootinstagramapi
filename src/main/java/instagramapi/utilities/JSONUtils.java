@@ -1,4 +1,4 @@
-package instagramapi;
+package instagramapi.utilities;
 
 import org.json.JSONObject;
 import org.json.JSONTokener;

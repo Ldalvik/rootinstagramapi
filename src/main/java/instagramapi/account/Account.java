@@ -1,4 +1,7 @@
-package instagramapi;
+package instagramapi.account;
+
+import instagramapi.utilities.JSONUtils;
+import instagramapi.utilities.Response;
 
 public class Account {
 

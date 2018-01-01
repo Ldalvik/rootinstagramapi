@@ -1,4 +1,7 @@
-package instagramapi;
+package instagramapi.media;
+
+import instagramapi.utilities.JSONUtils;
+import instagramapi.utilities.Response;
 
 public class Posts {
 
@@ -10,8 +13,8 @@ public class Posts {
         u = new JSONUtils(json);
     }
 
-    public String getBiography(){
-        return u.get("biography");
+    public String getCaption(){
+        return u.get("caption");
     }
 
     public String getEmail(){

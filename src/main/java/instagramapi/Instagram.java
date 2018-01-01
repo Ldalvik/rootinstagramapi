@@ -1,12 +1,15 @@
 package instagramapi;
 
-import instagramapi.edit.EditAccount;
-import instagramapi.edit.EditPosts;
+import instagramapi.account.Account;
+import instagramapi.account.EditAccount;
+import instagramapi.media.EditPosts;
+import instagramapi.media.UploadMedia;
+import instagramapi.media.Posts;
 
 public class Instagram {
 
-    private static String username;
-    private static String password;
+    private String username;
+    private String password;
 
     public Instagram(){
 
@@ -36,5 +39,9 @@ public class Instagram {
 
     public EditPosts editPosts(){
         return new EditPosts(username, password);
+    }
+
+    public UploadMedia uploadMedia(){
+        return new UploadMedia(username, password);
     }
 }

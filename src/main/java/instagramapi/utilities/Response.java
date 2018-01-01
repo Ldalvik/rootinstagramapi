@@ -1,7 +1,10 @@
-package instagramapi;
+package instagramapi.utilities;
+
+import instagramapi.utilities.Constants;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -54,4 +57,31 @@ public class Response {
         }
         return response.toString();
     }
+
+    public static String postPhoto(String username, String password, String caption, String filedir) {
+        StringBuilder response = new StringBuilder();
+        try {
+            URL obj = new URL(Constants.API_URL+"media/timeline/post/index.php?caption="+caption);
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+            con.setRequestMethod("POST");
+            con.setRequestProperty("Username", username);
+            con.setRequestProperty("Password", password);
+            con.setDoOutput(true);
+            DataOutputStream dos = new DataOutputStream(con.getOutputStream());
+            dos.writeBytes("");
+            dos.flush();
+            dos.close();
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(con.getInputStream()));
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return response.toString();
+    }
+
 }
